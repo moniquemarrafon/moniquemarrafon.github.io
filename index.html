@@ -7,51 +7,57 @@
 <meta name="description" content="Portfólio de Monique Marrafon — candidatura a estágio em Tecnologia da Informação, Programação e Cibersegurança.">
 <style>
   :root{
-    --bg:#f7f9fc;
-    --bg-alt:#eef2f8;
+    --bg:#eef3fb;
+    --bg-alt:#e1e9f6;
     --surface:#ffffff;
-    --surface-2:#eef4fb;
-    --ink:#0f172a;
-    --ink-soft:#5b6b82;
-    --accent:#2454c9;
+    --surface-2:#e7eef9;
+    --ink:#0f1c30;
+    --ink-soft:#4f5f7c;
+    --accent:#215fcc;
     --accent-ink:#ffffff;
-    --teal:#0d8f83;
-    --border:#e1e7f0;
+    --violet:#4f6fe0;
+    --border:#d4dfef;
     --prep:#b3591a;
     --prep-bg:#fbeadb;
+    --glow: 24,76,158;
+    --glow2: 54,120,205;
     --font-head:'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
     --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
     --font-mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#0b1220;
-      --bg-alt:#0f1830;
-      --surface:#121d36;
-      --surface-2:#17233f;
-      --ink:#e8edf7;
-      --ink-soft:#8f9dbc;
-      --accent:#5c93ff;
-      --accent-ink:#0b1220;
-      --teal:#37c2b3;
-      --border:#233152;
+      --bg:#071428;
+      --bg-alt:#0b1c36;
+      --surface:#0e2143;
+      --surface-2:#132a4f;
+      --ink:#eaf1fc;
+      --ink-soft:#8fa3c8;
+      --accent:#6fa3ff;
+      --accent-ink:#071428;
+      --violet:#8fb0ff;
+      --border:#1d3560;
       --prep:#e7a862;
       --prep-bg:#2c2114;
+      --glow: 40,105,195;
+      --glow2: 80,150,225;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0b1220;
-    --bg-alt:#0f1830;
-    --surface:#121d36;
-    --surface-2:#17233f;
-    --ink:#e8edf7;
-    --ink-soft:#8f9dbc;
-    --accent:#5c93ff;
-    --accent-ink:#0b1220;
-    --teal:#37c2b3;
-    --border:#233152;
+    --bg:#071428;
+    --bg-alt:#0b1c36;
+    --surface:#0e2143;
+    --surface-2:#132a4f;
+    --ink:#eaf1fc;
+    --ink-soft:#8fa3c8;
+    --accent:#6fa3ff;
+    --accent-ink:#071428;
+    --violet:#8fb0ff;
+    --border:#1d3560;
     --prep:#e7a862;
     --prep-bg:#2c2114;
+    --glow: 40,105,195;
+    --glow2: 80,150,225;
   }
 
   *{box-sizing:border-box;}
@@ -77,41 +83,83 @@
   /* ---------- nav ---------- */
   .topnav{
     position:sticky; top:0; z-index:50;
-    background:color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter:blur(8px);
+    background:color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
   }
-  .topnav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px; gap:20px;}
-  .brand{display:flex; align-items:center; text-decoration:none;}
-  .brand-mark{
-    width:38px; height:38px; border-radius:10px;
-    background:var(--accent); color:var(--accent-ink);
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-head); font-weight:800; font-size:.88rem; letter-spacing:.02em;
+  .topnav .wrap{display:flex; align-items:center; justify-content:flex-end; height:64px; gap:14px;}
+  .nav-controls{display:flex; align-items:center; gap:10px;}
+
+  .lang-toggle{
+    display:flex; align-items:center; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:20px; padding:3px; gap:2px;
   }
+  .lang-toggle button{
+    font-family:var(--font-mono); font-size:.7rem; font-weight:700; letter-spacing:.03em;
+    border:none; background:transparent; color:var(--ink-soft); padding:6px 11px; border-radius:16px; cursor:pointer;
+  }
+  .lang-toggle button.active{background:var(--accent); color:var(--accent-ink);}
+
+  .icon-btn{
+    width:34px; height:34px; border-radius:50%; border:1px solid var(--border); background:var(--surface-2);
+    color:var(--ink-soft); display:flex; align-items:center; justify-content:center; cursor:pointer; flex:none;
+  }
+  .icon-btn:hover{color:var(--accent); border-color:var(--accent);}
+  .icon-btn svg{width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+
   .nav-cta{
     display:flex; align-items:center; gap:8px;
     font-family:var(--font-mono); font-size:.72rem; font-weight:600;
-    color:var(--teal); background:var(--surface-2);
+    color:var(--violet); background:var(--surface-2);
     border:1px solid var(--border); border-radius:20px;
     padding:6px 12px; white-space:nowrap;
   }
-  .nav-cta .dot{width:7px; height:7px; border-radius:50%; background:var(--teal);}
+  .nav-cta .dot{width:7px; height:7px; border-radius:50%; background:var(--violet);}
 
   /* ---------- hero ---------- */
-  .hero{padding:64px 0 40px;}
-  .hero-grid{display:flex; gap:40px; align-items:center; flex-wrap:wrap;}
-  .avatar{
-    width:104px; height:104px; border-radius:24px; flex:none;
-    background:linear-gradient(155deg, var(--accent), var(--teal));
-    color:#fff; display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-head); font-weight:800; font-size:2.1rem;
+  .hero{padding:52px 0 40px; position:relative; overflow:hidden;}
+  .hero-atmos{
+    position:absolute; inset:-20% -10% auto -10%; height:640px; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(480px 380px at 82% 15%, rgba(var(--glow2),.2), transparent 60%),
+      radial-gradient(520px 420px at 8% 30%, rgba(var(--glow),.16), transparent 60%);
+    filter:blur(10px);
   }
-  .hero-copy{flex:1; min-width:280px;}
+  .seaweed{position:absolute; z-index:0; pointer-events:none; fill:none; stroke:var(--ink); stroke-linecap:round;}
+  .seaweed circle{fill:var(--ink); stroke:none;}
+  .seaweed.w1{top:-60px; left:-70px; width:460px; height:620px; opacity:.22;}
+  .seaweed.w2{top:-20px; right:-90px; width:420px; height:600px; opacity:.18; transform:scaleX(-1);}
+  .seaweed.w3{bottom:-100px; left:32%; width:340px; height:460px; opacity:.14;}
+  .seaweed.w4{bottom:-40px; right:6%; width:260px; height:360px; opacity:.12; transform:scaleX(-1) rotate(8deg);}
+
+  .hero-grid{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:22px; position:relative; z-index:1;
+  }
+
+  .photo-wrap{position:relative; flex:none; width:240px;}
+  .photo-glow{
+    position:absolute; inset:-24px; z-index:0;
+    background:radial-gradient(circle, rgba(var(--glow2),.42), rgba(var(--glow),.22) 45%, transparent 72%);
+    filter:blur(24px);
+  }
+  .photo-blob{
+    position:relative; z-index:1; width:100%; aspect-ratio:3/4; overflow:hidden;
+    border-radius:42% 58% 61% 39% / 47% 43% 57% 53%;
+    box-shadow:0 0 0 1px rgba(var(--glow),.35), 0 30px 60px -25px rgba(var(--glow2),.55);
+  }
+  .photo-blob img{width:100%; height:100%; object-fit:cover; display:block;}
+  .photo-blob::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(155deg, rgba(var(--glow),.22), transparent 55%);
+    mix-blend-mode:overlay;
+  }
+
+  .hero-copy{max-width:640px;}
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-family:var(--font-mono); font-size:.76rem; font-weight:600;
-    letter-spacing:.05em; text-transform:uppercase; color:var(--teal);
+    letter-spacing:.05em; text-transform:uppercase; color:var(--violet);
     margin-bottom:14px;
   }
   .hero h1{
@@ -121,9 +169,11 @@
     margin:0 0 10px;
     text-wrap:balance;
     letter-spacing:-.01em;
+    background:linear-gradient(100deg, var(--ink) 40%, var(--violet));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .hero .tagline{font-size:1.12rem; color:var(--ink-soft); max-width:56ch; margin:0 0 22px;}
-  .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .hero .tagline{font-size:1.12rem; color:var(--ink-soft); max-width:56ch; margin:0 auto 22px;}
+  .hero-actions{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:22px;}
 
   .btn{
     display:inline-flex; align-items:center; gap:8px;
@@ -131,35 +181,36 @@
     text-decoration:none; padding:11px 18px; border-radius:9px;
     border:1px solid var(--border); color:var(--ink); background:var(--surface);
   }
-  .btn.primary{background:var(--accent); border-color:var(--accent); color:var(--accent-ink);}
-  .btn:hover{border-color:var(--accent); color:var(--accent);}
+  .btn.primary{background:linear-gradient(120deg, var(--accent), var(--violet)); border-color:transparent; color:var(--accent-ink);}
+  .btn:hover{border-color:var(--violet); color:var(--violet);}
   .btn.primary:hover{opacity:.92; color:var(--accent-ink);}
 
-  .facts{display:flex; gap:14px; flex-wrap:wrap; margin-top:32px;}
+  .facts{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:32px;}
   .fact{
     display:flex; align-items:center; gap:10px;
     background:var(--surface); border:1px solid var(--border); border-radius:11px;
     padding:12px 16px; font-size:.85rem; color:var(--ink-soft);
   }
-  .fact svg{color:var(--accent);}
+  .fact svg{color:var(--violet);}
   .fact b{color:var(--ink); font-weight:700;}
 
   .quicknav{
-    display:flex; flex-wrap:wrap; gap:8px;
+    display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
     margin-top:36px; padding-top:24px; border-top:1px solid var(--border);
+    position:relative; z-index:1;
   }
   .quicknav a{
     color:var(--ink-soft); text-decoration:none; font-size:.86rem; font-weight:600;
     padding:9px 16px; border-radius:8px; background:var(--surface); border:1px solid var(--border);
   }
-  .quicknav a:hover{color:var(--accent); border-color:var(--accent);}
+  .quicknav a:hover{color:var(--violet); border-color:var(--violet);}
 
   /* ---------- sections ---------- */
   section.block{padding:54px 0; border-top:1px solid var(--border);}
   .block-head{display:flex; align-items:center; gap:12px; margin-bottom:28px;}
   .block-head .ic{
     width:38px; height:38px; border-radius:10px; flex:none;
-    background:var(--surface-2); color:var(--accent);
+    background:var(--surface-2); color:var(--violet);
     display:flex; align-items:center; justify-content:center;
   }
   .block-head h2{font-family:var(--font-head); font-size:1.5rem; font-weight:800; margin:0; text-wrap:balance;}
@@ -168,15 +219,13 @@
   .lede{max-width:68ch; color:var(--ink); font-size:1.02rem;}
   .lede + .lede{margin-top:14px;}
 
-  /* ---------- formação timeline ---------- */
-  .timeline{display:flex; flex-direction:column; gap:0;}
-  .tl-item{display:flex; gap:18px; padding-bottom:30px; position:relative;}
-  .tl-item:last-child{padding-bottom:0;}
-  .tl-rail{display:flex; flex-direction:column; align-items:center; flex:none;}
-  .tl-dot{width:14px; height:14px; border-radius:50%; background:var(--accent); margin-top:4px;}
-  .tl-line{flex:1; width:2px; background:var(--border); margin-top:6px;}
-  .tl-item:last-child .tl-line{display:none;}
-  .tl-body{flex:1; min-width:0;}
+  /* ---------- formação ---------- */
+  .timeline{display:flex; flex-direction:column; gap:34px;}
+  .tl-item{
+    padding-left:22px; position:relative;
+    border-left:2px solid transparent;
+    border-image:linear-gradient(180deg, var(--accent), var(--violet)) 1;
+  }
   .tl-body h3{font-family:var(--font-head); font-size:1.08rem; font-weight:700; margin:0 0 4px;}
   .tl-meta{font-size:.8rem; color:var(--ink-soft); font-weight:600; margin-bottom:8px;}
   .tl-body p{margin:0 0 10px; color:var(--ink-soft); font-size:.94rem; max-width:62ch;}
@@ -189,14 +238,15 @@
   .tag.prep{background:var(--prep-bg); color:var(--prep); border-color:transparent;}
 
   /* ---------- skills ---------- */
-  .skill-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px;}
-  .skill-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px;}
+  .skill-grid{display:flex; flex-direction:column; gap:16px;}
+  .skill-card{padding-bottom:16px; border-bottom:1px solid var(--border);}
+  .skill-card:last-child{border-bottom:none; padding-bottom:0;}
   .skill-card h3{
-    font-family:var(--font-head); font-size:.86rem; font-weight:700;
-    margin:0 0 14px; color:var(--ink);
+    font-family:var(--font-mono); font-size:.72rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    margin:0 0 12px; color:var(--ink-soft);
     display:flex; align-items:center; gap:8px;
   }
-  .skill-card h3 svg{color:var(--accent);}
+  .skill-card h3 svg{color:var(--violet);}
   .chip-list{display:flex; flex-wrap:wrap; gap:8px;}
   .chip{
     display:inline-flex; align-items:center; gap:7px;
@@ -204,7 +254,7 @@
     background:var(--surface-2); border:1px solid var(--border);
     border-radius:8px; padding:7px 11px;
   }
-  .chip svg{color:var(--teal); width:22px; height:22px;}
+  .chip svg{color:var(--violet); width:22px; height:22px;}
 
   /* ---------- projects ---------- */
   .proj-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px;}
@@ -215,7 +265,7 @@
   .proj-top{display:flex; align-items:center; gap:12px;}
   .proj-ic{
     width:42px; height:42px; border-radius:11px; flex:none;
-    background:var(--surface-2); color:var(--accent);
+    background:var(--surface-2); color:var(--violet);
     display:flex; align-items:center; justify-content:center;
   }
   .proj-card h3{font-family:var(--font-head); font-size:1.15rem; font-weight:700; margin:0;}
@@ -228,38 +278,41 @@
   }
   .proj-link{
     display:inline-flex; align-items:center; gap:6px;
-    font-size:.85rem; font-weight:600; text-decoration:none; color:var(--accent);
+    font-size:.85rem; font-weight:600; text-decoration:none; color:var(--violet);
   }
   .proj-link:hover{text-decoration:underline;}
 
   /* ---------- experiência ---------- */
-  .exp-list{display:flex; flex-direction:column; gap:16px;}
+  .exp-list{display:flex; flex-direction:column; gap:18px;}
   .exp-row{
     display:flex; gap:16px; align-items:flex-start;
-    background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px;
+    padding-bottom:18px; border-bottom:1px solid var(--border);
   }
-  .exp-ic{
-    width:36px; height:36px; border-radius:9px; flex:none;
-    background:var(--surface-2); color:var(--accent);
-    display:flex; align-items:center; justify-content:center;
-  }
+  .exp-list .exp-row:last-child{border-bottom:none; padding-bottom:0;}
+  .exp-ic{display:none;}
   .exp-row h4{margin:0 0 2px; font-family:var(--font-head); font-size:.98rem; font-weight:700;}
   .exp-row .role-meta{font-size:.76rem; color:var(--ink-soft); font-weight:600; text-transform:uppercase; letter-spacing:.03em; margin-bottom:6px;}
   .exp-row p{margin:0; font-size:.9rem; color:var(--ink-soft);}
 
   .lang-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;}
   .lang-chip{
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; gap:12px;
     background:var(--surface); border:1px solid var(--border); border-radius:12px;
     padding:12px 18px;
   }
-  .lang-flag{font-size:1.4rem; line-height:1;}
+  .lang-code{
+    display:flex; align-items:center; justify-content:center;
+    width:32px; height:32px; border-radius:8px; flex:none;
+    background:var(--surface-2); color:var(--violet);
+    font-family:var(--font-mono); font-size:.68rem; font-weight:700; letter-spacing:.02em;
+  }
   .lang-chip b{display:block; font-family:var(--font-head); font-size:.92rem;}
   .lang-chip span{font-size:.78rem; color:var(--ink-soft);}
 
   @media (max-width:600px){
-    .hero{padding:44px 0 28px;}
+    .hero{padding:40px 0 28px;}
     section.block{padding:38px 0;}
+    .photo-wrap{width:168px;}
   }
 </style>
 </head>
@@ -267,31 +320,73 @@
 
 <nav class="topnav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Monique Marrafon — topo da página">
-      <span class="brand-mark">MM</span>
-    </a>
-    <span class="nav-cta"><span class="dot"></span> Disponível para estágio</span>
+    <div class="nav-controls">
+      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+        <button type="button" id="langPt" class="active" data-lang="pt">PT</button>
+        <button type="button" id="langEn" data-lang="en">EN</button>
+      </div>
+      <button type="button" id="themeToggle" class="icon-btn" aria-label="Alternar tema claro/escuro">
+        <svg id="iconSun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="1.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22.5"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="1.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22.5" y2="12"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></svg>
+        <svg id="iconMoon" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <span class="nav-cta"><span class="dot"></span> <span data-i18n="nav-status">Disponível para estágio</span></span>
+    </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
+  <div class="hero-atmos"></div>
+  <svg class="seaweed w1" viewBox="0 0 240 320">
+    <path d="M55 312C18 270 68 236 40 190C15 150 70 122 46 78C25 42 72 28 58 -6" stroke-width="26"/>
+    <path d="M46 190C90 178 98 138 140 126" stroke-width="18"/>
+    <path d="M140 126C158 112 156 90 178 80" stroke-width="12"/>
+    <path d="M58 78C28 70 8 88 -18 78" stroke-width="14"/>
+    <path d="M40 190C6 196 -10 176 -34 182" stroke-width="12"/>
+    <circle cx="178" cy="80" r="7"/>
+    <circle cx="-18" cy="78" r="6"/>
+  </svg>
+  <svg class="seaweed w2" viewBox="0 0 240 320">
+    <path d="M60 306C20 262 72 226 42 178C14 134 74 104 48 58C24 18 74 6 60 -30" stroke-width="26"/>
+    <path d="M48 178C96 166 106 122 152 108" stroke-width="18"/>
+    <path d="M152 108C172 96 172 72 196 62" stroke-width="12"/>
+    <path d="M60 58C30 48 10 66 -16 54" stroke-width="13"/>
+    <circle cx="196" cy="62" r="7"/>
+    <circle cx="-16" cy="54" r="6"/>
+  </svg>
+  <svg class="seaweed w3" viewBox="0 0 220 260">
+    <path d="M46 254C10 214 56 182 34 142C14 106 58 84 40 44C24 10 62 -2 50 -30" stroke-width="20"/>
+    <path d="M34 142C70 132 82 98 116 88" stroke-width="14"/>
+    <path d="M40 44C14 34 -4 50 -26 40" stroke-width="11"/>
+    <circle cx="116" cy="88" r="6"/>
+  </svg>
+  <svg class="seaweed w4" viewBox="0 0 200 240">
+    <path d="M40 232C8 196 48 168 28 132C10 100 48 80 32 46C18 16 50 4 40 -22" stroke-width="18"/>
+    <path d="M28 132C60 124 70 94 100 84" stroke-width="12"/>
+    <circle cx="100" cy="84" r="6"/>
+  </svg>
+
   <div class="wrap">
     <div class="hero-grid">
-      <div class="avatar">MM</div>
+      <div class="photo-wrap">
+        <div class="photo-glow"></div>
+        <div class="photo-blob">
+          <img src="assets/monique.jpg" alt="Monique Marrafon" width="480" height="640">
+        </div>
+      </div>
       <div class="hero-copy">
         <span class="eyebrow">
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>
-          Cibersegurança &amp; Desenvolvimento
+          <span data-i18n="eyebrow">Cibersegurança &amp; Desenvolvimento</span>
         </span>
         <h1>Monique Marrafon</h1>
         <div class="hero-actions">
           <a class="btn primary" href="Monique_Marrafon_CV.pdf" download>
             <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12"/><polyline points="7,10 12,15 17,10"/><path d="M4 19h16"/></svg>
-            Baixar CV
+            <span data-i18n="btn-cv">Baixar CV</span>
           </a>
           <a class="btn" href="mailto:marrafonmonique7@gmail.com">
             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
-            Enviar email
+            <span data-i18n="btn-email">Enviar email</span>
           </a>
           <a class="btn" href="https://linkedin.com/in/moniquemarrafon" target="_blank" rel="noopener">
             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="7.2" y1="10" x2="7.2" y2="17"/><circle cx="7.2" cy="6.8" r="1"/><path d="M11 17v-4.5c0-1.4 1-2.5 2.4-2.5s2.6 1.1 2.6 2.5V17"/><line x1="11" y1="10" x2="11" y2="17"/></svg>
@@ -306,26 +401,26 @@
         <div class="facts">
           <div class="fact">
             <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/></svg>
-            <span><b>CET TPSI</b> — IEFP (em andamento)</span>
+            <span data-i18n="fact-cet"><b>CET TPSI</b> — IEFP (em andamento)</span>
           </div>
           <div class="fact">
             <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>
-            <span><b>Cibersegurança &amp; Pentest</b> — Solyd One (em andamento)</span>
+            <span data-i18n="fact-ciber"><b>Cibersegurança &amp; Pentest</b> — Solyd One (em andamento)</span>
           </div>
           <div class="fact">
             <svg class="icon" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/></svg>
-            <span><b>3</b> projetos em portfólio</span>
+            <span data-i18n="fact-proj"><b>3</b> projetos em portfólio</span>
           </div>
         </div>
       </div>
     </div>
 
     <nav class="quicknav" aria-label="Acesso rápido às secções">
-      <a href="#perfil">Perfil</a>
-      <a href="#formacao">Formação</a>
-      <a href="#competencias">Competências</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#experiencia">Experiência</a>
+      <a href="#perfil" data-i18n="nav-perfil">Perfil</a>
+      <a href="#formacao" data-i18n="nav-formacao">Formação</a>
+      <a href="#competencias" data-i18n="nav-competencias">Competências</a>
+      <a href="#projetos" data-i18n="nav-projetos">Projetos</a>
+      <a href="#experiencia" data-i18n="nav-experiencia">Experiência</a>
     </nav>
   </div>
 </header>
@@ -336,10 +431,10 @@
     <div class="wrap">
       <div class="block-head">
         <span class="ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
-        <h2>Perfil</h2>
+        <h2 data-i18n="h-perfil">Perfil</h2>
       </div>
-      <p class="lede">Profissional em transição de carreira para a área de Tecnologia da Informação, atualmente a concluir o <strong>CET em Tecnologias e Programação de Sistemas de Informação</strong> (IEFP) e em formação complementar em <strong>Cibersegurança e Pentest</strong> (em andamento) pela Solyd One.</p>
-      <p class="lede">Interesse em desenvolvimento backend e segurança da informação, com autonomia de aprendizagem e prática constante em Python, Linux e redes. Procuro uma oportunidade de estágio onde possa aplicar e continuar a desenvolver os conhecimentos adquiridos.</p>
+      <p class="lede" data-i18n="perfil-p1">Profissional em transição de carreira para a área de Tecnologia da Informação, atualmente a concluir o <strong>CET em Tecnologias e Programação de Sistemas de Informação</strong> (IEFP) e em formação complementar em <strong>Cibersegurança e Pentest</strong> (em andamento) pela Solyd One.</p>
+      <p class="lede" data-i18n="perfil-p2">Interesse em desenvolvimento backend e segurança da informação, com autonomia de aprendizagem e prática constante em Python, Linux e redes. Procuro uma oportunidade de estágio onde possa aplicar e continuar a desenvolver os conhecimentos adquiridos.</p>
     </div>
   </section>
 
@@ -347,27 +442,25 @@
     <div class="wrap">
       <div class="block-head">
         <span class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/><line x1="22" y1="8" x2="22" y2="14"/></svg></span>
-        <h2>Formação</h2>
+        <h2 data-i18n="h-formacao">Formação</h2>
       </div>
 
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-body">
-            <h3>CET — Tecnologias e Programação de Sistemas de Informação</h3>
-            <div class="tl-meta">IEFP · Em andamento · Previsão de conclusão: Maio 2027</div>
-            <p>Formação técnica abrangente em programação, bases de dados, redes e desenvolvimento de sistemas de informação, com prática constante em ambiente de laboratório.</p>
+            <h3 data-i18n="cet-title">CET — Tecnologias e Programação de Sistemas de Informação</h3>
+            <div class="tl-meta" data-i18n="cet-meta">IEFP · Em andamento · Previsão de conclusão: Maio 2027</div>
+            <p data-i18n="cet-desc">Formação técnica abrangente em programação, bases de dados, redes e desenvolvimento de sistemas de informação, com prática constante em ambiente de laboratório.</p>
           </div>
         </div>
         <div class="tl-item">
-          <div class="tl-rail"><div class="tl-dot"></div></div>
           <div class="tl-body">
-            <h3>Cibersegurança e Pentest</h3>
-            <div class="tl-meta">Solyd Offensive Security (Solyd One) · Em andamento</div>
-            <p>Trilhas em curso: Fundamentos de Pentest (Absoluto Zero), Segurança em Aplicações Web / Cloud / Mobile, e Pentest em Ambientes Windows / Active Directory.</p>
+            <h3 data-i18n="solyd-title">Cibersegurança e Pentest</h3>
+            <div class="tl-meta" data-i18n="solyd-meta">Solyd Offensive Security (Solyd One) · Em andamento</div>
+            <p data-i18n="solyd-desc">Trilhas em curso: Fundamentos de Pentest (Absoluto Zero), Segurança em Aplicações Web / Cloud / Mobile, e Pentest em Ambientes Windows / Active Directory.</p>
             <div class="tag-row">
-              <span class="tag prep">Certificação SYAP — em preparação</span>
-              <span class="tag prep">Certificação SYES — em preparação</span>
+              <span class="tag prep" data-i18n="syap">Certificação SYAP — em preparação</span>
+              <span class="tag prep" data-i18n="syes">Certificação SYES — em preparação</span>
             </div>
           </div>
         </div>
@@ -379,28 +472,28 @@
     <div class="wrap">
       <div class="block-head">
         <span class="ic"><svg class="icon" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.5"/><line x1="12" y1="2" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="22"/><line x1="2" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22" y2="12"/></svg></span>
-        <h2>Competências Técnicas</h2>
+        <h2 data-i18n="h-competencias">Competências Técnicas</h2>
       </div>
-      <p class="block-intro">Em desenvolvimento contínuo através da formação CET e Solyd One.</p>
+      <p class="block-intro" data-i18n="competencias-intro">Em desenvolvimento contínuo através da formação CET e Solyd One.</p>
 
       <div class="skill-grid">
         <div class="skill-card">
-          <h3><svg class="icon" viewBox="0 0 24 24"><polyline points="4,7 9,12 4,17"/><line x1="12" y1="17" x2="20" y2="17"/></svg>Programação</h3>
+          <h3><svg class="icon" viewBox="0 0 24 24"><polyline points="4,7 9,12 4,17"/><line x1="12" y1="17" x2="20" y2="17"/></svg><span data-i18n="cat-prog">Programação</span></h3>
           <div class="chip-list">
             <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path fill="#3776AB" stroke="none" d="M12 2c-1.9 0-3.4.2-4.4.6-1 .4-1.5 1-1.5 1.9v2h6v.8H4.8c-1 0-1.9.6-2.2 1.7-.3 1.1-.3 2.6 0 3.7.3 1.1 1.1 1.7 2 1.7h1.5v-1.9c0-1.4 1.2-2.5 2.6-2.5h5.5c1.2 0 2.1-.9 2.1-2.1V4.5c0-.9-.6-1.5-1.5-1.9C13.8 2.2 12.5 2 12 2z"/><path fill="#FFD43B" stroke="none" d="M12 22c1.9 0 3.4-.2 4.4-.6 1-.4 1.5-1 1.5-1.9v-2h-6v-.8h6.7c1 0 1.9-.6 2.2-1.7.3-1.1.3-2.6 0-3.7-.3-1.1-1.1-1.7-2-1.7h-1.5v1.9c0 1.4-1.2 2.5-2.6 2.5H9.4c-1.2 0-2.1.9-2.1 2.1v3.4c0 .9.6 1.5 1.5 1.9 1 .4 2.3.6 3.2.6z"/><circle cx="8.9" cy="4.6" r=".55" fill="#fff" stroke="none"/><circle cx="15.1" cy="19.4" r=".55" fill="#fff" stroke="none"/></svg>Python</span>
-            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M12 2l4.2 4.2-4.2 4.2-4.2-4.2L12 2z" fill="#8b5cf6" stroke="none"/><path d="M12 13.6l4.2 4.2-4.2 4.2-4.2-4.2 4.2-4.2z" fill="#a78bfa" stroke="none"/><line x1="12" y1="10.4" x2="12" y2="13.6" stroke="#8b5cf6" stroke-width="1.8" fill="none"/></svg>Lógica de Programação</span>
+            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M12 2l4.2 4.2-4.2 4.2-4.2-4.2L12 2z" fill="#8b5cf6" stroke="none"/><path d="M12 13.6l4.2 4.2-4.2 4.2-4.2-4.2 4.2-4.2z" fill="#a78bfa" stroke="none"/><line x1="12" y1="10.4" x2="12" y2="13.6" stroke="#8b5cf6" stroke-width="1.8" fill="none"/></svg><span data-i18n="chip-logica">Lógica de Programação</span></span>
           </div>
         </div>
 
         <div class="skill-card">
-          <h3><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>Bases de Dados</h3>
+          <h3><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span data-i18n="cat-bd">Bases de Dados</span></h3>
           <div class="chip-list">
             <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" fill="#2d6a94" stroke="none"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6" fill="#3c85b8" stroke="none"/><ellipse cx="12" cy="6" rx="7" ry="3" fill="#5fa8d3" stroke="none"/></svg>SQL</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <h3><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><line x1="8" y1="7" x2="8.01" y2="7"/><line x1="8" y1="17" x2="8.01" y2="17"/></svg>Sistemas &amp; Redes</h3>
+          <h3><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><line x1="8" y1="7" x2="8.01" y2="7"/><line x1="8" y1="17" x2="8.01" y2="17"/></svg><span data-i18n="cat-redes">Sistemas &amp; Redes</span></h3>
           <div class="chip-list">
             <span class="chip"><svg viewBox="0 0 24 24" style="width:28px;height:28px;">
               <ellipse cx="6.4" cy="13.2" rx="1.3" ry="3.1" fill="#1a1a1a" stroke="none" transform="rotate(-18 6.4 13.2)"/>
@@ -415,12 +508,12 @@
               <path d="M7.3 20.8c.6.9 1.5 1.1 1.9.6.4-.5-.2-1.6-1.1-1.9-.9-.3-1.4.4-.8 1.3z" fill="#f2a33c" stroke="none"/>
               <path d="M16.7 20.8c-.6.9-1.5 1.1-1.9.6-.4-.5.2-1.6 1.1-1.9.9-.3 1.4.4.8 1.3z" fill="#f2a33c" stroke="none"/>
             </svg>Linux</span>
-            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><line x1="6.4" y1="7.4" x2="10.6" y2="10.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><line x1="17.6" y1="7.4" x2="13.4" y2="10.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><line x1="10.6" y1="13.4" x2="6.4" y2="16.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><line x1="13.4" y1="13.4" x2="17.6" y2="16.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><circle cx="5" cy="6" r="2.1" fill="#2454c9" stroke="none"/><circle cx="19" cy="6" r="2.1" fill="#2454c9" stroke="none"/><circle cx="5" cy="18" r="2.1" fill="#2454c9" stroke="none"/><circle cx="19" cy="18" r="2.1" fill="#2454c9" stroke="none"/><circle cx="12" cy="12" r="2.4" fill="#0d8f83" stroke="none"/></svg>Redes de Computadores</span>
+            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><line x1="6.4" y1="7.4" x2="10.6" y2="10.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><line x1="17.6" y1="7.4" x2="13.4" y2="10.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><line x1="10.6" y1="13.4" x2="6.4" y2="16.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><line x1="13.4" y1="13.4" x2="17.6" y2="16.6" stroke="#8fa3b8" stroke-width="1.8" fill="none"/><circle cx="5" cy="6" r="2.1" fill="#4a5fe0" stroke="none"/><circle cx="19" cy="6" r="2.1" fill="#4a5fe0" stroke="none"/><circle cx="5" cy="18" r="2.1" fill="#4a5fe0" stroke="none"/><circle cx="19" cy="18" r="2.1" fill="#4a5fe0" stroke="none"/><circle cx="12" cy="12" r="2.4" fill="#7c5cff" stroke="none"/></svg><span data-i18n="chip-redes">Redes de Computadores</span></span>
           </div>
         </div>
 
         <div class="skill-card">
-          <h3><svg class="icon" viewBox="0 0 24 24"><polyline points="8,6 3,12 8,18"/><polyline points="16,6 21,12 16,18"/></svg>Desenvolvimento Web</h3>
+          <h3><svg class="icon" viewBox="0 0 24 24"><polyline points="8,6 3,12 8,18"/><polyline points="16,6 21,12 16,18"/></svg><span data-i18n="cat-web">Desenvolvimento Web</span></h3>
           <div class="chip-list">
             <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M3.5 2.5h17l-1.55 17.4L12 22 5.05 19.9 3.5 2.5z" fill="#e44d26" stroke="none"/><path d="M12 4.1v16.1l5.6-1.7 1.3-14.4H12z" fill="#f16529" stroke="none"/><path d="M12 8.6H8.4l.25 2.55H12v2.5H8.9l.35 3.5L12 17.9v-2.62l-1.9-.5-.13-1.43H12V8.6z" fill="#fff" stroke="none"/><path d="M12 8.6h3.9l-.24 2.55H12v2.5h3.45l-.4 4.05L12 17.9v2.66l4.9-1.65.68-7.63.07-.73H12V8.6z" fill="#ebebeb" stroke="none"/></svg>HTML5</span>
             <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M3.5 2.5h17l-1.55 17.4L12 22 5.05 19.9 3.5 2.5z" fill="#264de4" stroke="none"/><path d="M12 4.1v16.1l5.6-1.7 1.3-14.4H12z" fill="#2965f1" stroke="none"/><path d="M12 8.6H7.6l.26 2.55H12v2.5H9.2l.24 2.05L12 16.4v2.65l-4.35-1.2-.3-3.35h2.5l.15 1.5L12 16.4" fill="#fff" stroke="none"/><path d="M12 8.6h4.4l-.24 2.55H12v2.5h2.9l-.32 3.05L12 16.9v2.65l4.35-1.2.62-6.05.07-.7H12V8.6z" fill="#ebebeb" stroke="none"/></svg>CSS3</span>
@@ -428,7 +521,7 @@
         </div>
 
         <div class="skill-card">
-          <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M6 8.2V15.8"/><path d="M18 8.2a6 6 0 0 1-6 6h-2"/></svg>Controlo de Versões</h3>
+          <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M6 8.2V15.8"/><path d="M18 8.2a6 6 0 0 1-6 6h-2"/></svg><span data-i18n="cat-versoes">Controlo de Versões</span></h3>
           <div class="chip-list">
             <span class="chip"><svg viewBox="0 0 24 24" style="width:17px;height:17px; color:#f05033;"><circle cx="6" cy="6" r="2.2" fill="currentColor" stroke="none"/><circle cx="6" cy="18" r="2.2" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="2.2" fill="currentColor" stroke="none"/><path d="M6 8.2V15.8" stroke="currentColor" fill="none" stroke-width="1.8"/><path d="M18 8.2a6 6 0 0 1-6 6h-2" stroke="currentColor" fill="none" stroke-width="1.8"/></svg>Git</span>
             <span class="chip"><svg viewBox="0 0 24 24" style="width:22px;height:22px; color:var(--ink);"><path fill="currentColor" stroke="none" d="M12 .3C5.4.3 0 5.6 0 12.3c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.8-1.6 8.2-6.1 8.2-11.4C24 5.6 18.6.3 12 .3z"/></svg>GitHub</span>
@@ -436,12 +529,12 @@
         </div>
 
         <div class="skill-card">
-          <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>Cibersegurança / Pentest</h3>
+          <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg><span data-i18n="cat-ciber">Cibersegurança / Pentest</span></h3>
           <div class="chip-list">
-            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z" fill="#2454c9" stroke="none"/><polyline points="9,12 11,14 15,10" stroke="#fff" stroke-width="1.8" fill="none"/></svg>Fundamentos de Segurança da Informação</span>
-            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="#8a6a12" stroke-width="1.8" fill="none"/><rect x="5" y="11" width="14" height="10" rx="2" fill="#e3ab2c" stroke="none"/><circle cx="12" cy="15" r="1.4" fill="#8a6a12" stroke="none"/><line x1="12" y1="16.2" x2="12" y2="18" stroke="#8a6a12" stroke-width="1.6"/></svg>Criptografia</span>
-            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><circle cx="11" cy="11" r="6.2" fill="none" stroke="#0d8f83" stroke-width="2"/><circle cx="11" cy="11" r="2.4" fill="#0d8f83" stroke="none"/><line x1="20" y1="20" x2="15.4" y2="15.4" stroke="#0d8f83" stroke-width="2.2" stroke-linecap="round"/></svg>Reconhecimento (Recon)</span>
-            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><circle cx="11" cy="11" r="8" fill="#2c8fd6" stroke="none"/><path d="M3 11a8 8 0 0 1 16 0" fill="none" stroke="#8fd0f5" stroke-width="1.2"/><ellipse cx="11" cy="11" rx="3.2" ry="8" fill="none" stroke="#8fd0f5" stroke-width="1.1"/><line x1="3" y1="11" x2="19" y2="11" stroke="#8fd0f5" stroke-width="1.1"/><circle cx="16.5" cy="16.5" r="5" fill="#0d8f83" stroke="none"/><path d="M14.8 16.3v-1.1a1.7 1.7 0 0 1 3.4 0v1.1" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="14.3" y="16.3" width="4.4" height="3.2" rx=".7" fill="#fff" stroke="none"/></svg>Segurança em Aplicações Web</span>
+            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z" fill="#4a5fe0" stroke="none"/><polyline points="9,12 11,14 15,10" stroke="#fff" stroke-width="1.8" fill="none"/></svg><span data-i18n="chip-fundamentos">Fundamentos de Segurança da Informação</span></span>
+            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="#8a6a12" stroke-width="1.8" fill="none"/><rect x="5" y="11" width="14" height="10" rx="2" fill="#e3ab2c" stroke="none"/><circle cx="12" cy="15" r="1.4" fill="#8a6a12" stroke="none"/><line x1="12" y1="16.2" x2="12" y2="18" stroke="#8a6a12" stroke-width="1.6"/></svg><span data-i18n="chip-cripto">Criptografia</span></span>
+            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><circle cx="11" cy="11" r="6.2" fill="none" stroke="#7c5cff" stroke-width="2"/><circle cx="11" cy="11" r="2.4" fill="#7c5cff" stroke="none"/><line x1="20" y1="20" x2="15.4" y2="15.4" stroke="#7c5cff" stroke-width="2.2" stroke-linecap="round"/></svg><span data-i18n="chip-recon">Reconhecimento (Recon)</span></span>
+            <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><circle cx="11" cy="11" r="8" fill="#2c8fd6" stroke="none"/><path d="M3 11a8 8 0 0 1 16 0" fill="none" stroke="#8fd0f5" stroke-width="1.2"/><ellipse cx="11" cy="11" rx="3.2" ry="8" fill="none" stroke="#8fd0f5" stroke-width="1.1"/><line x1="3" y1="11" x2="19" y2="11" stroke="#8fd0f5" stroke-width="1.1"/><circle cx="16.5" cy="16.5" r="5" fill="#7c5cff" stroke="none"/><path d="M14.8 16.3v-1.1a1.7 1.7 0 0 1 3.4 0v1.1" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="14.3" y="16.3" width="4.4" height="3.2" rx=".7" fill="#fff" stroke="none"/></svg><span data-i18n="chip-webapp">Segurança em Aplicações Web</span></span>
             <span class="chip"><svg viewBox="0 0 24 24" style="width:23px;height:23px;"><circle cx="9" cy="8" r="3" fill="#0078d4" stroke="none"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="#0078d4" stroke="none"/><circle cx="17" cy="8" r="2.6" fill="#50b0e8" stroke="none"/><path d="M17 14c2.5 0 5 2 5 6" fill="none" stroke="#50b0e8" stroke-width="2" stroke-linecap="round"/></svg>Active Directory</span>
           </div>
         </div>
@@ -453,37 +546,37 @@
     <div class="wrap">
       <div class="block-head">
         <span class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/></svg></span>
-        <h2>Projetos</h2>
+        <h2 data-i18n="h-projetos">Projetos</h2>
       </div>
 
       <div class="proj-grid">
         <article class="proj-card">
           <div class="proj-top">
             <span class="proj-ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg></span>
-            <h3>Scanner de Pentest — Controlo de Servidor</h3>
+            <h3 data-i18n="proj1-title">Scanner de Pentest — Controlo de Servidor</h3>
           </div>
-          <p>Ferramenta educativa em Python que simula um ataque completo contra um servidor vulnerável (DVWA), explorando uma falha de Command Injection para demonstrar o impacto real de um ataque.</p>
-          <div class="proj-flow">
+          <p data-i18n="proj1-desc">Ferramenta educativa em Python que simula um ataque completo contra um servidor vulnerável (DVWA), explorando uma falha de Command Injection para demonstrar o impacto real de um ataque.</p>
+          <div class="proj-flow" data-i18n-html="proj1-flow">
             <span>Reconhecimento</span><span>Scan de rede</span><span>Scan de portas</span><span>Controlo do servidor</span>
           </div>
           <div class="proj-foot">
             <span class="tag">Python · requests · BeautifulSoup4 · tkinter</span>
-            <span class="tag prep">Em breve no GitHub</span>
+            <span class="tag prep" data-i18n="em-breve">Em breve no GitHub</span>
           </div>
         </article>
 
         <article class="proj-card">
           <div class="proj-top">
             <span class="proj-ic"><svg class="icon" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3"/><path d="M20 8V5a1 1 0 0 0-1-1h-3"/><path d="M4 16v3a1 1 0 0 0 1 1h3"/><path d="M20 16v3a1 1 0 0 1-1 1h-3"/><circle cx="12" cy="10.5" r="2.6"/><path d="M8 17c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6"/></svg></span>
-            <h3>Sistema de Reconhecimento Facial</h3>
+            <h3 data-i18n="proj2-title">Sistema de Reconhecimento Facial</h3>
           </div>
-          <p>Sistema de segurança com reconhecimento facial em tempo real. Deteta rostos pela câmara, identifica utilizadores registados por embeddings faciais e regista tentativas de acesso em log.</p>
-          <div class="proj-flow">
+          <p data-i18n="proj2-desc">Sistema de segurança com reconhecimento facial em tempo real. Deteta rostos pela câmara, identifica utilizadores registados por embeddings faciais e regista tentativas de acesso em log.</p>
+          <div class="proj-flow" data-i18n-html="proj2-flow">
             <span>Deteção de rosto</span><span>Extração de embedding</span><span>Reconhecimento</span><span>Registo de acesso</span>
           </div>
           <div class="proj-foot">
             <span class="tag">Python · OpenCV · InsightFace · NumPy</span>
-            <span class="tag prep">Em breve no GitHub</span>
+            <span class="tag prep" data-i18n="em-breve">Em breve no GitHub</span>
           </div>
         </article>
 
@@ -492,14 +585,14 @@
             <span class="proj-ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M8.2 9.5C6.5 11.3 6.5 14.8 6.5 17c0 1.8 1.6 3 1.6 3h7.8s1.6-1.2 1.6-3c0-2.2 0-5.7-1.7-7.5"/><ellipse cx="9.3" cy="19.2" rx="1.3" ry=".9"/><ellipse cx="14.7" cy="19.2" rx="1.3" ry=".9"/></svg></span>
             <h3>Linux Commands Cheat Sheet</h3>
           </div>
-          <p>Cheat sheet interativo de comandos Linux em Python, com 17 categorias e busca por palavra-chave em todas as categorias simultaneamente.</p>
-          <div class="proj-flow">
+          <p data-i18n="proj3-desc">Cheat sheet interativo de comandos Linux em Python, com 17 categorias e busca por palavra-chave em todas as categorias simultaneamente.</p>
+          <div class="proj-flow" data-i18n-html="proj3-flow">
             <span>Menu interativo</span><span>Busca por termo</span><span>17 categorias</span>
           </div>
           <div class="proj-foot">
             <span class="tag">Python 3.11</span>
             <a class="proj-link" href="https://github.com/moniquemarrafon/linux-commands-cheat-sheet" target="_blank" rel="noopener">
-              Ver no GitHub
+              <span data-i18n="ver-github">Ver no GitHub</span>
               <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8,7 17,7 17,16"/></svg>
             </a>
           </div>
@@ -512,45 +605,45 @@
     <div class="wrap">
       <div class="block-head">
         <span class="ic"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg></span>
-        <h2>Experiência Complementar</h2>
+        <h2 data-i18n="h-experiencia">Experiência Complementar</h2>
       </div>
-      <p class="block-intro">Percurso profissional anterior à transição para TI, com competências transferíveis de responsabilidade, organização e trabalho em equipa.</p>
+      <p class="block-intro" data-i18n="exp-intro">Percurso profissional anterior à transição para TI, com competências transferíveis de responsabilidade, organização e trabalho em equipa.</p>
 
       <div class="exp-list">
         <div class="exp-row">
           <span class="exp-ic"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg></span>
           <div>
-            <h4>Operadora de Caixa / Repositora</h4>
-            <div class="role-meta">Atendimento &amp; Retalho</div>
-            <p>Gestão de valores em ambiente de grande movimento e trabalho em equipa para o bom funcionamento da loja.</p>
+            <h4 data-i18n="exp1-title">Operadora de Caixa / Repositora</h4>
+            <div class="role-meta" data-i18n="exp1-meta">Atendimento &amp; Retalho</div>
+            <p data-i18n="exp1-desc">Gestão de valores em ambiente de grande movimento e trabalho em equipa para o bom funcionamento da loja.</p>
           </div>
         </div>
         <div class="exp-row">
           <span class="exp-ic"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
           <div>
-            <h4>Operadora de Cobrança</h4>
-            <div class="role-meta">Atendimento &amp; Administrativo</div>
-            <p>Negociação e acompanhamento de pagamentos, com comunicação clara e resolução de situações administrativas.</p>
+            <h4 data-i18n="exp2-title">Operadora de Cobrança</h4>
+            <div class="role-meta" data-i18n="exp2-meta">Atendimento &amp; Administrativo</div>
+            <p data-i18n="exp2-desc">Negociação e acompanhamento de pagamentos, com comunicação clara e resolução de situações administrativas.</p>
           </div>
         </div>
         <div class="exp-row">
           <span class="exp-ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="8,12 11,15 16,9"/></svg></span>
           <div>
-            <h4>Auxiliar de Cozinha</h4>
-            <div class="role-meta">Restauração</div>
-            <p>Organização da estação de trabalho e cumprimento de normas de higiene e segurança em ambiente de elevada pressão.</p>
+            <h4 data-i18n="exp3-title">Auxiliar de Cozinha</h4>
+            <div class="role-meta" data-i18n="exp3-meta">Restauração</div>
+            <p data-i18n="exp3-desc">Organização da estação de trabalho e cumprimento de normas de higiene e segurança em ambiente de elevada pressão.</p>
           </div>
         </div>
       </div>
 
       <div class="lang-row">
         <div class="lang-chip">
-          <span class="lang-flag">🇵🇹</span>
-          <div><b>Português</b><span>Nativo</span></div>
+          <span class="lang-code">PT</span>
+          <div><b data-i18n="lang-pt">Português</b><span data-i18n="lang-pt-level">Nativo</span></div>
         </div>
         <div class="lang-chip">
-          <span class="lang-flag">🇬🇧</span>
-          <div><b>Inglês</b><span>Intermédio</span></div>
+          <span class="lang-code">EN</span>
+          <div><b data-i18n="lang-en">Inglês</b><span data-i18n="lang-en-level">Intermédio</span></div>
         </div>
       </div>
     </div>
@@ -558,6 +651,133 @@
 
 
 </main>
+
+<script>
+(function(){
+  var I18N = {
+    "nav-status": {en:"Open to internships"},
+    "eyebrow": {en:"Cybersecurity &amp; Development"},
+    "btn-cv": {en:"Download CV"},
+    "btn-email": {en:"Email me"},
+    "fact-cet": {en:"<b>CET TPSI</b> — IEFP (ongoing)"},
+    "fact-ciber": {en:"<b>Cybersecurity &amp; Pentest</b> — Solyd One (ongoing)"},
+    "fact-proj": {en:"<b>3</b> projects in portfolio"},
+    "nav-perfil": {en:"Profile"},
+    "nav-formacao": {en:"Education"},
+    "nav-competencias": {en:"Skills"},
+    "nav-projetos": {en:"Projects"},
+    "nav-experiencia": {en:"Experience"},
+    "h-perfil": {en:"Profile"},
+    "perfil-p1": {en:"IT career-changer, currently completing the <strong>Programming and Information Systems Technologies</strong> vocational program (IEFP) and complementary training in <strong>Cybersecurity and Pentest</strong> (ongoing) at Solyd One."},
+    "perfil-p2": {en:"Interested in backend development and information security, with self-driven learning and steady practice in Python, Linux and networking. Looking for an internship where I can apply and keep building on what I've learned."},
+    "h-formacao": {en:"Education"},
+    "cet-title": {en:"CET — Programming and Information Systems Technologies"},
+    "cet-meta": {en:"IEFP · Ongoing · Expected completion: May 2027"},
+    "cet-desc": {en:"Broad technical program covering programming, databases, networking and information systems development, with constant hands-on lab practice."},
+    "solyd-title": {en:"Cybersecurity and Pentest"},
+    "solyd-meta": {en:"Solyd Offensive Security (Solyd One) · Ongoing"},
+    "solyd-desc": {en:"Tracks in progress: Pentest Fundamentals (Absolute Zero), Web/Cloud/Mobile Application Security, and Windows/Active Directory Pentesting."},
+    "syap": {en:"SYAP Certification — in preparation"},
+    "syes": {en:"SYES Certification — in preparation"},
+    "h-competencias": {en:"Technical Skills"},
+    "competencias-intro": {en:"Continuously growing through the CET and Solyd One training."},
+    "cat-prog": {en:"Programming"},
+    "chip-logica": {en:"Programming Logic"},
+    "cat-bd": {en:"Databases"},
+    "cat-redes": {en:"Systems &amp; Networks"},
+    "chip-redes": {en:"Computer Networks"},
+    "cat-web": {en:"Web Development"},
+    "cat-versoes": {en:"Version Control"},
+    "cat-ciber": {en:"Cybersecurity / Pentest"},
+    "chip-fundamentos": {en:"Information Security Fundamentals"},
+    "chip-cripto": {en:"Cryptography"},
+    "chip-recon": {en:"Reconnaissance (Recon)"},
+    "chip-webapp": {en:"Web Application Security"},
+    "h-projetos": {en:"Projects"},
+    "proj1-title": {en:"Pentest Scanner — Server Takeover"},
+    "proj1-desc": {en:"Educational Python tool that simulates a full attack against a vulnerable server (DVWA), exploiting a Command Injection flaw to demonstrate the real impact of an attack."},
+    "proj1-flow": {en:"<span>Reconnaissance</span><span>Network scan</span><span>Port scan</span><span>Server takeover</span>"},
+    "em-breve": {en:"Coming soon on GitHub"},
+    "proj2-title": {en:"Facial Recognition System"},
+    "proj2-desc": {en:"Real-time facial-recognition security system. Detects faces via camera, identifies registered users by facial embeddings, and logs access attempts."},
+    "proj2-flow": {en:"<span>Face detection</span><span>Embedding extraction</span><span>Recognition</span><span>Access log</span>"},
+    "proj3-desc": {en:"Interactive Linux commands cheat sheet in Python, with 17 categories and keyword search across all categories at once."},
+    "proj3-flow": {en:"<span>Interactive menu</span><span>Keyword search</span><span>17 categories</span>"},
+    "ver-github": {en:"View on GitHub"},
+    "h-experiencia": {en:"Additional Experience"},
+    "exp-intro": {en:"Professional background before transitioning to IT, with transferable skills in responsibility, organisation and teamwork."},
+    "exp1-title": {en:"Cashier / Stock Clerk"},
+    "exp1-meta": {en:"Customer Service &amp; Retail"},
+    "exp1-desc": {en:"Handled cash in a high-traffic environment and worked as part of a team to keep the store running smoothly."},
+    "exp2-title": {en:"Collections Operator"},
+    "exp2-meta": {en:"Customer Service &amp; Admin"},
+    "exp2-desc": {en:"Negotiated and followed up on payments, with clear communication and resolution of administrative issues."},
+    "exp3-title": {en:"Kitchen Assistant"},
+    "exp3-meta": {en:"Food Service"},
+    "exp3-desc": {en:"Organised the work station and followed hygiene and safety standards in a high-pressure environment."},
+    "lang-pt": {en:"Portuguese"},
+    "lang-pt-level": {en:"Native"},
+    "lang-en": {en:"English"},
+    "lang-en-level": {en:"Intermediate"}
+  };
+
+  var textEls = document.querySelectorAll('[data-i18n]');
+  var htmlEls = document.querySelectorAll('[data-i18n-html]');
+  textEls.forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(I18N[key]) I18N[key].ptOrig = el.innerHTML;
+  });
+  htmlEls.forEach(function(el){
+    var key = el.getAttribute('data-i18n-html');
+    if(I18N[key]) I18N[key].ptOrig = el.innerHTML;
+  });
+
+  function applyLang(lang){
+    textEls.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      var entry = I18N[key];
+      if(!entry) return;
+      el.innerHTML = (lang === 'en') ? entry.en : entry.ptOrig;
+    });
+    htmlEls.forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      var entry = I18N[key];
+      if(!entry) return;
+      el.innerHTML = (lang === 'en') ? entry.en : entry.ptOrig;
+    });
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'pt-PT';
+    document.getElementById('langPt').classList.toggle('active', lang !== 'en');
+    document.getElementById('langEn').classList.toggle('active', lang === 'en');
+    localStorage.setItem('site-lang', lang);
+  }
+
+  document.getElementById('langPt').addEventListener('click', function(){ applyLang('pt'); });
+  document.getElementById('langEn').addEventListener('click', function(){ applyLang('en'); });
+
+  var savedLang = localStorage.getItem('site-lang');
+  if(savedLang === 'en') applyLang('en');
+
+  // theme toggle
+  var root = document.documentElement;
+  var sun = document.getElementById('iconSun');
+  var moon = document.getElementById('iconMoon');
+  function currentTheme(){
+    var stored = localStorage.getItem('site-theme');
+    if(stored) return stored;
+    return 'dark';
+  }
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    sun.style.display = theme === 'dark' ? 'none' : 'block';
+    moon.style.display = theme === 'dark' ? 'block' : 'none';
+    localStorage.setItem('site-theme', theme);
+  }
+  applyTheme(currentTheme());
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
 
 </body>
 </html>
