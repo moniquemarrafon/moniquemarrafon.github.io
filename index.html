@@ -314,6 +314,18 @@
     section.block{padding:38px 0;}
     .photo-wrap{width:168px;}
   }
+
+  .email-toast{
+    position:fixed; left:50%; bottom:28px; z-index:100;
+    transform:translate(-50%, 12px); opacity:0;
+    background:var(--ink); color:var(--bg);
+    font-size:.85rem; font-weight:600;
+    padding:11px 18px; border-radius:9px;
+    box-shadow:0 10px 30px -10px rgba(0,0,0,.4);
+    transition:opacity .25s ease, transform .25s ease;
+    white-space:nowrap;
+  }
+  .email-toast.show{opacity:1; transform:translate(-50%, 0);}
 </style>
 </head>
 <body>
@@ -384,15 +396,15 @@
             <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12"/><polyline points="7,10 12,15 17,10"/><path d="M4 19h16"/></svg>
             <span data-i18n="btn-cv">Baixar CV</span>
           </a>
-          <a class="btn" href="mailto:marrafonmonique7@gmail.com">
+          <a class="btn" href="mailto:marrafonmonique7@gmail.com" id="emailBtn">
             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
-            <span data-i18n="btn-email">Enviar email</span>
+            <span data-i18n="btn-email">Email</span>
           </a>
-          <a class="btn" href="https://linkedin.com/in/moniquemarrafon" target="_blank" rel="noopener">
+          <a class="btn" href="https://www.linkedin.com/in/moniquemarrafon">
             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="7.2" y1="10" x2="7.2" y2="17"/><circle cx="7.2" cy="6.8" r="1"/><path d="M11 17v-4.5c0-1.4 1-2.5 2.4-2.5s2.6 1.1 2.6 2.5V17"/><line x1="11" y1="10" x2="11" y2="17"/></svg>
             LinkedIn
           </a>
-          <a class="btn" href="https://github.com/moniquemarrafon" target="_blank" rel="noopener">
+          <a class="btn" href="https://github.com/moniquemarrafon">
             <svg class="icon" viewBox="0 0 24 24" style="stroke:none;"><path fill="currentColor" d="M12 .3C5.4.3 0 5.6 0 12.3c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.8-1.6 8.2-6.1 8.2-11.4C24 5.6 18.6.3 12 .3z"/></svg>
             GitHub
           </a>
@@ -658,7 +670,7 @@
     "nav-status": {en:"Open to internships"},
     "eyebrow": {en:"Cybersecurity &amp; Development"},
     "btn-cv": {en:"Download CV"},
-    "btn-email": {en:"Email me"},
+    "btn-email": {en:"Email"},
     "fact-cet": {en:"<b>CET TPSI</b> — IEFP (ongoing)"},
     "fact-ciber": {en:"<b>Cybersecurity &amp; Pentest</b> — Solyd One (ongoing)"},
     "fact-proj": {en:"<b>3</b> projects in portfolio"},
@@ -776,6 +788,30 @@
   document.getElementById('themeToggle').addEventListener('click', function(){
     applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
+
+  // email: also copy the address to clipboard, in case the visitor has no mail app configured
+  var emailBtn = document.getElementById('emailBtn');
+  var emailAddress = 'marrafonmonique7@gmail.com';
+  emailBtn.addEventListener('click', function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(emailAddress).catch(function(){});
+    }
+    showEmailToast();
+  });
+  function showEmailToast(){
+    var toast = document.createElement('div');
+    toast.className = 'email-toast';
+    var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+    toast.textContent = lang === 'en'
+      ? 'Email copied: ' + emailAddress
+      : 'Email copiado: ' + emailAddress;
+    document.body.appendChild(toast);
+    requestAnimationFrame(function(){ toast.classList.add('show'); });
+    setTimeout(function(){
+      toast.classList.remove('show');
+      setTimeout(function(){ toast.remove(); }, 300);
+    }, 2800);
+  }
 })();
 </script>
 
