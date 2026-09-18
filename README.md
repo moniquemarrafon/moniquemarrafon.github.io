@@ -1,6 +1,6 @@
-# Portfólio — Monique Marrafon
+# Portfólio pessoal de Monique Marrafon
 
-Site de portfólio pessoal, feito em HTML/CSS puro (sem frameworks), para candidaturas a estágio em Tecnologia da Informação, Programação e Cibersegurança.
+Site de portfólio pessoal, feito em HTML/CSS puro (sem frameworks).
 
 **Site publicado:** https://moniquemarrafon.github.io
 
